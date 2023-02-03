@@ -13,7 +13,7 @@ export const MessageList = () => {
   return (
     <ul
       aria-label="a list of messages "
-      className="p-20  border-4 border-slate-500 w-3/4 bg-fuchsia-100"
+      className="p-20 border-4 w-3/4 bg-cyan-500 shadow-xl shadow-cyan-500/50 "
     >
       {messages &&
         sortByDate(

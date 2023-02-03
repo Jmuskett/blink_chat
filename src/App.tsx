@@ -8,7 +8,6 @@ function App() {
       <section>
         <div className="flex h-100">
           <ConversationList />
-
           <MessageList />
         </div>
       </section>

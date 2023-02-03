@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { data } from "../../api/data";
 import { Direction, sortByDate } from "../../helpers/sortByDate";
+import { v4 as uuidv4 } from "uuid";
 
 export type Message = {
   id: string;
@@ -50,9 +51,9 @@ export const conversationSlice = createSlice({
         state.conversationState.messageList = [
           ...state.conversationState.messageList,
           {
-            id: "1234",
+            id: uuidv4(),
             text: action.payload,
-            last_updated: new Date(Date.now()).toDateString(),
+            last_updated: new Date(Date.now()).toUTCString(),
           },
         ];
     },

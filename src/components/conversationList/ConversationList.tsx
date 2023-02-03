@@ -20,7 +20,7 @@ export const ConversationList = ({}) => {
   return (
     <ul
       aria-label="A list of conversations"
-      className="p-20  border-4 border-slate-500 w-1/4 bg-fuchsia-100 "
+      className="p-20  border-4 border-slate-500 w-1/4 bg-cyan-100 shadow-xl shadow-cyan-100/50"
     >
       {conversations.map((conversation: Conversation, i) => (
         <li

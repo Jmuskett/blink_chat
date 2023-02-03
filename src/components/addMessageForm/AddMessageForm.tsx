@@ -10,8 +10,9 @@ export const AddMessageForm = () => {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    e.stopPropagation();
+
     dispatch(addMessage(newMessage));
+    setNewMessage("");
   };
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
@@ -21,6 +22,7 @@ export const AddMessageForm = () => {
         id="new-message-input"
         name="new-message-input"
         type="text"
+        value={newMessage}
       />
       <button type="submit">Click to send</button>
     </form>
