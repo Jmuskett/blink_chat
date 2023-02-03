@@ -17,7 +17,7 @@ function App() {
 
   const messageList = sortedConversations.filter(
     (conversation: Conversation) => conversation.id === selectedConversation
-  )[0].messages;
+  )[0]?.messages;
 
   return (
     <div>
@@ -25,7 +25,9 @@ function App() {
         setSelectedConversation={setSelectedConversation}
         conversations={sortedConversations}
       />
-      {messageList && <MessageList messages={messageList} />}
+      {messageList && selectedConversation && (
+        <MessageList messages={messageList} />
+      )}
     </div>
   );
 }

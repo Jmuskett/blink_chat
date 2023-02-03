@@ -1,4 +1,6 @@
-import { Message } from "../../redux/slices/conversationSlice";
+import { formatDate } from "../../helpers/formatDate";
+import { Direction, sortByDate } from "../../helpers/sortByDate";
+import { Conversation, Message } from "../../redux/slices/conversationSlice";
 
 type Props = {
   messages: Message[];
@@ -7,9 +9,16 @@ type Props = {
 export const MessageList = ({ messages }: Props) => {
   return (
     <div>
-      hello!
-      {messages.map((message: Message) => {
-        return <p>{message.text}</p>;
+      {sortByDate(
+        messages as unknown as Conversation[],
+        Direction.ASCENDING
+      ).map((message: any) => {
+        return (
+          <>
+            <p>{formatDate(message.last_updated)}</p>
+            <p>{message.text}</p>{" "}
+          </>
+        );
       })}
     </div>
   );
