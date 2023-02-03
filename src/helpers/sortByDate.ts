@@ -1,5 +1,5 @@
 import { compareAsc, compareDesc } from "date-fns";
-import { Conversation, Message } from "../redux/slices/conversationSlice";
+import { Conversation } from "../redux/slices/conversationSlice";
 
 export enum Direction {
   DESCENDING = "DESCENDING",
@@ -7,7 +7,8 @@ export enum Direction {
 }
 
 export const sortByDate = (data: Conversation[], direction: Direction) => {
-  const copyOfDataToAvoidMutation = data;
+  console.log("data", data);
+  const copyOfDataToAvoidMutation = data.map((data) => data);
 
   direction === Direction.DESCENDING
     ? copyOfDataToAvoidMutation.sort((a, b) =>
