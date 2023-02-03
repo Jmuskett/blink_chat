@@ -1,5 +1,5 @@
 /* eslint-disable jest/no-conditional-expect */
-import { Conversation, Message } from "../redux/slices/conversationSlice";
+import { Conversation } from "../redux/slices/conversationSlice";
 import {
   mockConversations,
   mockMessages,
@@ -25,9 +25,12 @@ describe("sortByDate", () => {
     });
   });
   it("should return a list of messages, from oldest to newest", () => {
-    const result = sortByDate(mockMessages, Direction.ASCENDING);
+    const result = sortByDate(
+      mockMessages as unknown as Conversation[],
+      Direction.ASCENDING
+    );
 
-    result.forEach((message: Message, i) => {
+    result.forEach((message: Conversation, i) => {
       if (i !== result.length - 1) {
         expect(
           new Date(result[i].last_updated) <

@@ -6,10 +6,7 @@ export enum Direction {
   ASCENDING = "ASCENDING",
 }
 
-export const sortByDate = (
-  data: Conversation[] | Message[],
-  direction: Direction
-) => {
+export const sortByDate = (data: Conversation[], direction: Direction) => {
   const copyOfDataToAvoidMutation = data;
 
   direction === Direction.DESCENDING
