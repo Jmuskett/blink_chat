@@ -3,7 +3,7 @@ import { Conversation } from "../redux/slices/conversationSlice";
 import {
   mockConversations,
   mockMessages,
-} from "../redux/__test__/mockConversations";
+} from "../redux/helpers/mockConversations";
 import { Direction, sortByDate } from "./sortByDate";
 
 describe("sortByDate", () => {

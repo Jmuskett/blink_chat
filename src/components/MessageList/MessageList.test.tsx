@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 
 import { Message } from "../../redux/slices/conversationSlice";
-import { mockStore } from "../../redux/__test__/mockStore";
+import { mockStore } from "../../redux/helpers/mockStore";
 import { MessageList } from "./MessageList";
 
 describe("ConversationList", () => {

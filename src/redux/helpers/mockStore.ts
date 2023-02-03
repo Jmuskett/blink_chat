@@ -1,5 +1,4 @@
 import configureStore from "redux-mock-store";
-import { RootState } from "../store";
 import { mockConversations } from "./mockConversations";
 
 const mockReduxStore = configureStore();

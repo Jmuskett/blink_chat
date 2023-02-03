@@ -6,7 +6,7 @@ import {
   selectConversation,
 } from "../../redux/slices/conversationSlice";
 
-export const ConversationList = ({}) => {
+export const ConversationList = () => {
   const conversations = useSelector(
     (state: RootState) => state.conversations.conversationState.conversations
   );
@@ -20,17 +20,17 @@ export const ConversationList = ({}) => {
   return (
     <ul
       aria-label="A list of conversations"
-      className="p-20  border-4 border-slate-500 w-1/4 bg-cyan-100 shadow-xl shadow-cyan-100/50"
+      className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-64 max-w-sm "
     >
       {conversations.map((conversation: Conversation, i) => (
         <li
           tabIndex={20 + i}
-          className="py-10 cursor-pointer"
+          className="py-10 cursor-pointer "
           onClick={() => handleSelectConversation(conversation.id)}
           onKeyDown={(e) => handleSelectConversation(conversation.id, e)}
           key={conversation.id}
         >
-          <h2 className="text-2xl text-center hover:font-bold">
+          <h2 className="hover:font-bold whitespace-nowrap">
             {conversation.name}
           </h2>
         </li>
