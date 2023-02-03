@@ -11,7 +11,9 @@ export const ConversationList = ({
   conversations,
 }: Props) => {
   const handleSelectConversation = (id: string, e?: React.KeyboardEvent) => {
-    setSelectedConversation(id);
+    if (e && e?.key !== "Enter") {
+      return;
+    } else setSelectedConversation(id);
   };
 
   return (
@@ -24,7 +26,7 @@ export const ConversationList = ({
           tabIndex={20 + i}
           className="py-10 cursor-pointer"
           onClick={() => handleSelectConversation(conversation.id)}
-          onKeyDown={() => handleSelectConversation(conversation.id)}
+          onKeyDown={(e) => handleSelectConversation(conversation.id, e)}
           key={conversation.id}
         >
           <h2 className="text-2xl text-center hover:font-bold">
