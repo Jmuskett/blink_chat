@@ -31,7 +31,7 @@ describe("ConversationList", () => {
     );
 
     mockMessages.forEach((message: Message) =>
-      expect(screen.getByText(message.text)).toBeInTheDocument()
+      expect(screen.getByText(`"${message.text}"`)).toBeInTheDocument()
     );
   });
 });

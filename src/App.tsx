@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ConversationList } from "./components/conversationList/ConversationList";
 import { MessageList } from "./components/MessageList/MessageList";
 import { Direction, sortByDate } from "./helpers/sortByDate";
 import { RootState } from "./redux";
-import { Conversation, Message } from "./redux/slices/conversationSlice";
+import { addMessage, Conversation } from "./redux/slices/conversationSlice";
 
 function App() {
   const [selectedConversation, setSelectedConversation] = useState<string>();
@@ -20,15 +20,19 @@ function App() {
   )[0]?.messages;
 
   return (
-    <div>
-      <ConversationList
-        setSelectedConversation={setSelectedConversation}
-        conversations={sortedConversations}
-      />
-      {messageList && selectedConversation && (
-        <MessageList messages={messageList} />
-      )}
-    </div>
+    <>
+      <section>
+        <div className="flex h-100">
+          <ConversationList
+            setSelectedConversation={setSelectedConversation}
+            conversations={sortedConversations}
+          />
+          {messageList && selectedConversation && (
+            <MessageList messages={messageList} />
+          )}
+        </div>
+      </section>
+    </>
   );
 }
 
