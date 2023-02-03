@@ -8,7 +8,6 @@ describe("ConversationList", () => {
   it("should render a list of the conversations from global state", () => {
     render(
       <Provider store={store}>
-        {" "}
         <ConversationList />
       </Provider>
     );

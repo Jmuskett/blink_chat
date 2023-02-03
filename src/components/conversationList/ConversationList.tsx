@@ -10,7 +10,7 @@ export const ConversationList = () => {
   return (
     <div>
       {conversations.map((conversation: Conversation) => (
-        <p>{conversation.name}</p>
+        <h2>{conversation.name}</h2>
       ))}
     </div>
   );
