@@ -1,19 +1,20 @@
 import React from "react";
-import { Conversation } from "../../redux/slices/conversationSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux";
+import {
+  Conversation,
+  selectConversation,
+} from "../../redux/slices/conversationSlice";
 
-type Props = {
-  setSelectedConversation: (id: string) => void;
-  conversations: Conversation[];
-};
-
-export const ConversationList = ({
-  setSelectedConversation,
-  conversations,
-}: Props) => {
+export const ConversationList = ({}) => {
+  const conversations = useSelector(
+    (state: RootState) => state.conversations.conversationState.conversations
+  );
+  const dispatch = useDispatch();
   const handleSelectConversation = (id: string, e?: React.KeyboardEvent) => {
     if (e && e?.key !== "Enter") {
       return;
-    } else setSelectedConversation(id);
+    } else dispatch(selectConversation(id));
   };
 
   return (

@@ -9,13 +9,11 @@ describe("ConversationList", () => {
   it("should render a list of the conversations from global state", () => {
     render(
       <Provider store={store}>
-        <ConversationList
-          setSelectedConversation={jest.fn()}
-          conversations={mockConversations}
-        />
+        <ConversationList />
       </Provider>
     );
-    const conversations = store.getState().conversations.conversations;
+    const conversations =
+      store.getState().conversations.conversationState.conversations;
 
     conversations.forEach((conversation: Conversation) =>
       expect(screen.getByText(conversation.name)).toBeInTheDocument()

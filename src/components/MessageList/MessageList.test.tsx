@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { store } from "../../redux";
+
 import { Message } from "../../redux/slices/conversationSlice";
+import { mockStore } from "../../redux/__test__/mockStore";
 import { MessageList } from "./MessageList";
 
 describe("ConversationList", () => {
@@ -25,8 +26,8 @@ describe("ConversationList", () => {
     ];
 
     render(
-      <Provider store={store}>
-        <MessageList messages={mockMessages} />
+      <Provider store={mockStore}>
+        <MessageList />
       </Provider>
     );
 
