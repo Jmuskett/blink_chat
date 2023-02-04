@@ -20,9 +20,9 @@ npm run test to run tests
 
 I am a bit concerned I've misunderstood one of the core parts of the task, so wanted to flag that straight away. The test says to "pull the data directly into a JSON file" as the link will expire after X time, as such this app has no API calls, loading or error state, now re-reading after the task I wonder if you meant "pull via network the first time you access the data" rather than literally copying the code into a .json, but then it also tells you, "do not try to use the link below directly from your code"
 
-I question this as it means some of the architecture is very different from what I'd do in production. If I was doing this task but reaching out directly to the notes, I would have used a query library (in this case RTK-QUERY) and shown loading and error states at the point of data injestion.
+I question this as it means some of the architecture is very different from what I'd do in production. If I was doing this task but reaching out directly to the converstaions, I would have used a query library (in this case RTK-QUERY) and shown loading and error states at the point of data injestion.
 
-In this app, App.tsx would have fired the data request and then showing a loading spinner while load, and then an error message componnt that consumed the error mesage, I'd also have put an error boundary around messageList, if we were adding messages via network request. with that said...
+In this app, we'd have fired the data request on load and App.tsx would show a loading spinner while loading data. We'd also have had an error message component that consumed any returned error mesage, I'd also have put an error boundary around messageList, if we were adding messages via network request, as well as loading state during the upload of a new message. with that said...
 
 all conversation data is loaded straight into redux state from the start
 and is then available to be consumed across the app.
@@ -37,6 +37,8 @@ render. The user can enter a message and hit send, and another redux action is s
 In a real world network app, this function would be slightly different, as here we just mutate the list of messages since it's all local. In a real world networked app, we'd handle this differently as we'd get the conversation in remotely each time and so we'd want to mutate the message key on the conversation object itself.
 
 Outside of this the other things to look out for are a few util functions. I'm using date-fns to format the string into a human readnable date, as well as to handle the sorting algorithm
+
+Testing wise, I've gone for a combination of using App.tsx to test the full user flow as a semi-integration test, while the individual component (mostly!) have their own tests for rendering. Functional utils are also tested to make sure their output is as expected. While the tests could be more robust, I am overall happy with this coverage.
 
 ## What's missing?
 
