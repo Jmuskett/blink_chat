@@ -14,7 +14,7 @@ export const MessageList = () => {
   );
 
   return (
-    <div className="ml-8  w-full max-w-xl h-full   px-8 pt-6 pb-8 mb-4 ">
+    <div className="ml-8  w-full max-w-xl h-full   px-8  pb-8 mb-4 ">
       <section>
         <ul
           aria-label="a list of messages"
