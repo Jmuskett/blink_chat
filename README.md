@@ -44,4 +44,4 @@ The biggest things are, I ran out of time for the optional story point. Thinking
 
 I also ran out of time for proper styling, by which I mean it's not responsive at all. It looks fairly ok on a laptop screen (using MBP 14), but it doesn't respond at all. In a prod app I'd set up size variables in a global theme and then consume these in media queries to make sure everything worked across screen sizes.
 
-Finally, I ran out of time to test everything I'd have liked to. In particular, we're not really testing the user actions. I'd have added tests to assert that each conversation click renders the correct messages on to the page and that when the user hits send, the new message is appeneded to the DOM.
+Finally, I ran out of time to make my tests as robust as i'd like. Some of the tests rely on the data being fixed, so I'd have liked to have made these more generic, and my mocking has ended up being quite messy, so a refactor of this to make it applicable for all use cases would be needed.
