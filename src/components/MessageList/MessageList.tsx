@@ -14,15 +14,17 @@ export const MessageList = () => {
   );
 
   return (
-    <div className=" ml-24 w-full max-w-xl h-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 ">
+    <div className="ml-8  w-full max-w-xl h-full   px-8 pt-6 pb-8 mb-4 ">
       <section>
-        {!messages?.length && (
-          <p className="flex justify-center align-bottom mt-36">
-            Click a conversation to see all of its messages
-          </p>
-        )}
-
-        <ul aria-label="a list of messages" className=" h-96 overflow-scroll">
+        <ul
+          aria-label="a list of messages"
+          className=" h-96 overflow-scroll  bg-white shadow-md rounded pl-8 mb-8"
+        >
+          {!messages?.length && (
+            <p className="flex justify-center py-40">
+              Click a conversation to see all of its messages
+            </p>
+          )}
           {messages &&
             sortByDate(
               messages as unknown as Conversation[],
