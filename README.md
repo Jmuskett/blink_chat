@@ -18,6 +18,8 @@ npm run test to run tests
 
 # Approach
 
+I am a bit concerned I've misunderstood one of the core parts of the task, so wanted to flag that straight away. The test says to pull the data directly into a JSON as the link will expire after X time, as such this app has no API calls, loading or error state. I question this as it means some of the architecture is very different from what I'd do in production. If I was doing this task but reaching out directly to the notes, I would have used a query library (in this case RTK-QUERY) and shown loading and error states at the point of data injestion. In this app, App.tsx would have fired the data request and then showing a loading spinner while load, and then an error message componnt that consumed the error mesage, I'd also have put an error boundary around messageList, if we were adding messages via network request. with that said...
+
 all conversation data is loaded straight into redux state from the start
 and is then available to be consumed across the app.
 
@@ -26,7 +28,7 @@ App.tsx holds a conversation list and a message list. The conversation list alwa
 In state, we have a messageList which instantiates as an empty array, when the conversation is clicked, the id of that conversation is fired as a redux action and triggers in the redurcer to set all those conversations' messages as the global messageList
 
 messageList having a length is also the trigger for the input form to
-render. The user can enter a message and hit send, and another redux action is sent to append the new message to the message list
+render. The user can enter a message and hit send, and another redux action is sent to append the new message to the message list. In a real world network app, this function would be slightly different, as here we just mutate the list of messages since it's all local. In a real world networked app, we'd handle this differently as we'd get the conversation in remotely each time and so we'd want to mutate the message key on the conversation object itself.
 
 Outside of this the other things to look out for are a few util functions. I'm using date-fns to format the string into a human readnable date, as well as to handle the sorting algorithm
 
