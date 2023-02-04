@@ -1,5 +1,5 @@
-import { ConversationList } from "./components/conversationList/ConversationList";
-import { MessageList } from "./components/MessageList/MessageList";
+import { ConversationList } from "./components/conversationList";
+import { MessageList } from "./components/MessageList";
 
 function App() {
   return (

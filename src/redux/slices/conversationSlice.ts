@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { data } from "../../api/data";
-import { Direction, sortByDate } from "../../helpers/sortByDate";
 import { v4 as uuidv4 } from "uuid";
+
+import { data } from "../../api/data";
+import { Direction, sortByDate } from "../../helpers/";
 
 export type Message = {
   id: string;

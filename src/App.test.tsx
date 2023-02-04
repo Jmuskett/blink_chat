@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { data } from "./api/data";
 import App from "./App";
-import { Direction, sortByDate } from "./helpers/sortByDate";
+import { Direction, sortByDate } from "./helpers/";
 import { store } from "./redux";
 
 describe("App", () => {

@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 
-import { formatDate } from "../../helpers/formatDate";
-import { Direction, sortByDate } from "../../helpers/sortByDate";
+import { formatDate } from "../../helpers/";
+import { Direction, sortByDate } from "../../helpers/";
 import { RootState } from "../../redux";
 import { Conversation } from "../../redux/slices/conversationSlice";
-import { AddMessageForm } from "../addMessageForm/AddMessageForm";
+import { AddMessageForm } from "../addMessageForm";
 
 // nb some funky type casting here because of the way the sort
 // function works, with more time would have this working correctly
@@ -22,7 +22,7 @@ export const MessageList = () => {
           </p>
         )}
 
-        <ul aria-label="a list of messages " className=" h-96 overflow-scroll">
+        <ul aria-label="a list of messages" className=" h-96 overflow-scroll">
           {messages &&
             sortByDate(
               messages as unknown as Conversation[],
